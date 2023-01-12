@@ -1,0 +1,27 @@
+package oldFashionPound;
+
+public class Main extends Utils{
+
+	public static void main(String[] args){
+		
+		
+		
+		
+		
+		String s = "18p 16s 1d";
+		String s1 = "1p 20s 10d"; 
+		
+		String[] ar = convertToArray(s);
+		String[] ar1 = convertToArray(s1);
+		
+		Prezzo p1 = new Prezzo(Integer.parseInt(ar[0]),Integer.parseInt(ar[1]),Integer.parseInt(ar[2]));
+		Prezzo p2 = new Prezzo(Integer.parseInt(ar1[0]),Integer.parseInt(ar1[1]),Integer.parseInt(ar1[2]));
+		
+		Prezzo p = Calcolatore.somma(p1,p2);
+		System.out.println("somma : " + p.toString());
+		System.out.println("sottrazione : " + Calcolatore.sottrazione(p1,p2));
+		System.out.println("moltiplicazione : " + Calcolatore.moltiplicazione(p1, 15));
+		System.out.println("divisione : " + Calcolatore.divisione(p1, 15));
+	}
+
+}

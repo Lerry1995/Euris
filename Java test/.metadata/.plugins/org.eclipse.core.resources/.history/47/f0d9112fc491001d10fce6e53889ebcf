@@ -1,0 +1,12 @@
+package oldFashionPound;
+
+public class Calcolatrice {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		Prezzo x = new Prezzo(5,2,1);
+
+	}
+
+}

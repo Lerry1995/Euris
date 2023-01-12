@@ -1,0 +1,55 @@
+package oldFashionPound;
+
+
+public class calcolatoreController extends utils{
+	
+	
+	
+	public static Prezzo somma(Prezzo p1, Prezzo p2) {
+		
+		double tot = (utils.convertToPennies(p1)) + (utils.convertToPennies(p2));
+		
+		return utils.convertToPrezzo(tot);
+	}
+	
+	public static Prezzo sottrazione(Prezzo p1, Prezzo p2) {
+		
+		double tot = (utils.convertToPennies(p1)) - (utils.convertToPennies(p2));
+		
+		return utils.convertToPrezzo(tot);
+	}
+	
+	public static Prezzo moltiplicazione(Prezzo p1, int molt) {
+		
+		double tot = (utils.convertToPennies(p1) * molt);
+		
+		
+		return utils.convertToPrezzo(tot);
+	}
+	
+	public static String divisione(Prezzo p1, int div) {
+		String prezzo_finale="";
+		
+		
+		double prezzo_pennies = utils.convertToPennies(p1);
+		double prezzo_diviso= prezzo_pennies /div ;
+		Prezzo p= new Prezzo(utils.convertToPrezzo(prezzo_diviso));
+		prezzo_finale += p.toString();
+		double resto=  prezzo_pennies % div ;
+		p= new Prezzo(utils.convertToPrezzo(resto));
+		String resto_out = "";
+		if(p.getP()>0) {
+			resto_out += p.getP() + "p ";
+		}
+		if(p.getS()>0) {
+			resto_out += p.getS() + "s ";
+		}
+		if(p.getD()>0) {
+			resto_out += p.getD() + "d";
+		}
+		
+		prezzo_finale += " (" + resto_out + ")";
+		return prezzo_finale;
+	}
+
+}

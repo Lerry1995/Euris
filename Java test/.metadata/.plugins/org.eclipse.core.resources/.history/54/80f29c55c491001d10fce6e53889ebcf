@@ -1,0 +1,24 @@
+package oldFashionPound;
+
+import entities.Prezzo;
+
+public class utils {
+	
+	public static String[] convertToArray(String s) {
+		String[] ar = s.split(" ");
+		for(int i=0; i<ar.length;i++) {
+			String num = ar[i].substring(0, ar[i].length()-1);
+			ar[i]=num;
+			System.out.println(ar[i]);
+		}
+		return ar;
+	}
+	
+	public static double convertToPennies(Prezzo p) {
+		double prezzo_pennies = (Double)(p.getP()*20.0*12.0 + p.getS()*12.0 + p.getD());
+		
+		return prezzo_pennies;
+		
+	}
+
+}

@@ -1,0 +1,58 @@
+package oldFashionPound;
+
+
+public class calcolatoreController extends utils{
+	
+	
+	
+	public static Prezzo somma(Prezzo p1, Prezzo p2) {
+		
+		double tot_pennies = (utils.convertToPennies(p1)) + (utils.convertToPennies(p2));
+		
+		return utils.convertToPrezzo(tot_pennies);
+	}
+	
+	public static String sottrazione(Prezzo p1, Prezzo p2) {
+		double tot_pennies = (utils.convertToPennies(p1)) - (utils.convertToPennies(p2));
+		Prezzo p= new Prezzo(utils.convertToPrezzo(tot_pennies));
+		if(p.getP()< 0 || p.getS()< 0 || p.getD()<0) {
+			p = moltiplicazione(p, -1);
+			return "-" + p.toString();
+		}
+		else {
+			return p.toString();
+		}
+	}
+	
+	public static Prezzo moltiplicazione(Prezzo p1, int molt) {
+		
+		double tot_pennies = (utils.convertToPennies(p1) * molt);
+		
+		
+		return utils.convertToPrezzo(tot_pennies);
+	}
+	
+	public static String divisione(Prezzo p1, int div) {
+		String prezzo_finale="";
+		
+		
+		double tot_pennies = utils.convertToPennies(p1);
+		double pennies_divisi= tot_pennies /div ;
+		Prezzo p= new Prezzo(utils.convertToPrezzo(pennies_divisi));
+		prezzo_finale += p.toString() +"(";
+		double resto=  tot_pennies % div ;
+		p= new Prezzo(utils.convertToPrezzo(resto));
+		
+		if(p.getP()>0) {
+			prezzo_finale += p.getP() + "p ";
+		}
+		if(p.getS()>0) {
+			prezzo_finale += p.getS() + "s ";
+		}
+		if(p.getD()>0) {
+			prezzo_finale += p.getD() + "d";
+		}
+		return prezzo_finale + ")";
+	}
+
+}
