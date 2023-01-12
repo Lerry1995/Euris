@@ -10,7 +10,7 @@ public class Main extends Utils{
 					+ "1- Somma \n"
 					+ "2- Sottrazione \n"
 					+ "3- Moltiplicazione \n"
-					+ "4- Divisione ");
+					+ "4- Divisione");
 			
 			int scelta = Integer.parseInt(tastiera.nextLine());
 			
